@@ -222,31 +222,36 @@ var links=[
 
 // + ------------------------------------- Settings (JS) - END ------------------------------------- +
 
-            var url = "Cyberpunk/";
-            var idx;
-            var n = 1000;
-            var img = new Image();
-            
-            function imageExists() {
-                idx = Math.round(Math.random()*n);
-                img.setAttribute("onerror","imageExists2()");
-                img.setAttribute("src",url+idx+".png");
-                return img;
-            }
-            
-            function imageExists2() {
-                img.setAttribute("onerror","imageExists()");
-                img.setAttribute("src",url+idx+".jpg");
-                return img;
-            }
-            
-			img = imageExists(url);
-			document.body.appendChild(img);
-			
-function newImage() {
-  img = imageExists(url);
-document.body.appendChild(img);
+// List of valid image filenames you uploaded
+const imageList = [
+  "Cyberpunk/1.jpg",
+  "Cyberpunk/2.jpg",
+  "Cyberpunk/3.jpg",
+  "Cyberpunk/4.jpg",
+];
+
+// Select one at random
+function getRandomImage() {
+  const randomIndex = Math.floor(Math.random() * imageList.length);
+  return imageList[randomIndex];
 }
+
+// Add image to the body
+function showRandomImage() {
+  const img = new Image();
+  img.src = getRandomImage();
+  img.style.position = "absolute";
+  img.style.top = "3%";
+  img.style.left = "0";
+  img.style.right = "0";
+  img.style.margin = "auto";
+  img.style.maxWidth = "900px";
+  img.style.maxHeight = "400px";
+  document.body.appendChild(img);
+}
+
+// Call it on page load
+window.addEventListener("load", showRandomImage);
 
 function init() {
     var body=document.getElementsByTagName('body')[0];
