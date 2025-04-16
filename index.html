@@ -426,18 +426,6 @@ function init() {
         $('preset').innerHTML="Animation preset : "+genPreset;
         $('preset').style.display="block";
     }
-  currentIndx = 0;
-  MyImages = new Array();
-  MyImages[0] = '7a17d81893a909f16db8b5d35b069fd9-d512z1c.jpg';
-  MyImages[1] = 'http://i.imgur.com/dRxnay8.jpg';
-  MyImages[2] = 'http://i.imgur.com/2oTdDKF.jpg';
-  imagesPreloaded = new Array(3)
-  for (var i = 0; i < MyImages.length; i++)
- {
-   imagesPreloaded[i] = new Image()
-   imagesPreloaded[i].src = MyImages[i]
- }
-  newImage();
 }
 
 function clear() {
@@ -639,6 +627,5 @@ document.ontouchmove= function(e) { // touch navigation
 <div id="shadow-bot"></div>
 
 <div id="preset"></div>
-</div>
 </body>
 </html>
